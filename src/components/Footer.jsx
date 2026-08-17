@@ -2,14 +2,14 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/10 bg-black px-6 py-12">
+    <footer className="border-t border-white/10 bg-black px-6 py-10">
       <div className="mx-auto max-w-6xl">
 
         {/* =====================================================
-            TOP SECTION
+            TOP FOOTER
         ====================================================== */}
 
-        <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
 
           {/* =================================================
               BRAND
@@ -27,14 +27,9 @@ function Footer() {
             </a>
 
             <p className="mt-2 max-w-md text-sm leading-6 text-gray-500">
-              Inda Obanyi{" "}
-              <span className="text-cyan-400">|</span>{" "}
-              AI/ML Practitioner &amp; Aspiring Machine Learning Engineer
-            </p>
-
-            <p className="mt-2 max-w-md text-sm leading-6 text-gray-600">
-              Building practical solutions with data, machine learning,
-              and intelligent systems.
+              AI/ML practitioner and aspiring Machine Learning Engineer
+              building practical solutions with data, technology, and
+              artificial intelligence.
             </p>
           </div>
 
@@ -45,9 +40,7 @@ function Footer() {
 
           <div className="flex items-center gap-3">
 
-            {/* =================================================
-                GITHUB
-            ================================================== */}
+            {/* GitHub */}
 
             <a
               href="https://github.com/Inda-Obanyi"
@@ -63,9 +56,7 @@ function Footer() {
             </a>
 
 
-            {/* =================================================
-                LINKEDIN
-            ================================================== */}
+            {/* LinkedIn */}
 
             <a
               href="https://www.linkedin.com/in/inda-obanyi-8886553a6"
@@ -81,9 +72,7 @@ function Footer() {
             </a>
 
 
-            {/* =================================================
-                EMAIL
-            ================================================== */}
+            {/* Email */}
 
             <a
               href="mailto:indaobanyi007@gmail.com"
@@ -105,33 +94,23 @@ function Footer() {
             DIVIDER
         ====================================================== */}
 
-        <div className="my-8 h-px bg-white/10" />
+        <div className="my-8 border-t border-white/10" />
 
 
         {/* =====================================================
-            BOTTOM SECTION
+            BOTTOM FOOTER
         ====================================================== */}
 
         <div className="flex flex-col gap-5 text-sm text-gray-600 sm:flex-row sm:items-center sm:justify-between">
 
-          {/* =================================================
-              COPYRIGHT
-          ================================================== */}
+          {/* Copyright */}
 
-          <div>
-            <p>
-              © {currentYear} Inda Obanyi. All rights reserved.
-            </p>
-
-            <p className="mt-1 text-xs text-gray-700">
-              AI/ML Practitioner &amp; Aspiring Machine Learning Engineer
-            </p>
-          </div>
+          <p>
+            © {currentYear} Inda Obanyi. All rights reserved.
+          </p>
 
 
-          {/* =================================================
-              NAVIGATION
-          ================================================== */}
+          {/* Navigation */}
 
           <div className="flex flex-wrap items-center gap-6">
 
@@ -157,9 +136,7 @@ function Footer() {
             </a>
 
 
-            {/* =================================================
-                BACK TO TOP
-            ================================================== */}
+            {/* Back to Top */}
 
             <a
               href="#home"

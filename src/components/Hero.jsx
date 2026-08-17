@@ -1,9 +1,6 @@
 import { motion } from "framer-motion";
-import {
-  ArrowDown,
-  ArrowRight,
-  Download,
-} from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
@@ -11,224 +8,153 @@ function Hero() {
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden px-6 pt-24"
     >
-      {/* =====================================================
-          BACKGROUND EFFECTS
-      ====================================================== */}
-      <div className="pointer-events-none absolute inset-0">
+      {/* Background Glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+      >
+        <div className="absolute left-1/2 top-1/4 h-96 w-96 -translate-x-1/2 rounded-full bg-cyan-400/10 blur-3xl" />
 
-        <div className="absolute left-1/2 top-1/4 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-400/10 blur-3xl" />
-
-        <div className="absolute right-0 top-1/2 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
-
-        <div className="absolute bottom-0 left-0 h-56 w-56 rounded-full bg-cyan-400/5 blur-3xl" />
-
+        <div className="absolute bottom-0 left-1/4 h-72 w-72 rounded-full bg-blue-500/5 blur-3xl" />
       </div>
 
-
-      <div className="relative mx-auto w-full max-w-6xl">
-
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-16 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+        {/* Main Content */}
         <div className="max-w-4xl">
-
-          {/* =================================================
-              PROFESSIONAL STATUS
-          ================================================== */}
-          <motion.div
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-7 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-4 py-2 text-sm text-cyan-400"
+            className="mb-5 text-sm font-medium uppercase tracking-[0.3em] text-cyan-400"
           >
-            <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-400" />
+            AI/ML Practitioner · Machine Learning Engineer
+          </motion.p>
 
-            Open to Machine Learning Opportunities
-          </motion.div>
-
-
-          {/* =================================================
-              MAIN HEADING
-          ================================================== */}
           <motion.h1
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl"
+            className="text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-8xl"
           >
-            Building intelligent
-
+            I build
             <span className="block text-cyan-400">
-              solutions with data.
+              intelligent systems.
             </span>
           </motion.h1>
 
-
-          {/* =================================================
-              INTRODUCTION
-          ================================================== */}
           <motion.p
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-7 max-w-2xl text-lg leading-8 text-gray-400 sm:text-xl"
+            className="mt-8 max-w-2xl text-lg leading-8 text-gray-400"
           >
-            I'm{" "}
-            <span className="font-semibold text-white">
-              Inda Obanyi
-            </span>
-            , an AI/ML practitioner and aspiring Machine Learning
-            Engineer focused on building practical machine learning
-            systems that solve real-world problems.
+            I'm Inda Obanyi, an AI/ML practitioner building practical
+            machine learning solutions that solve real-world problems.
           </motion.p>
 
-
-          {/* =================================================
-              PROFESSIONAL IDENTITY
-          ================================================== */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-4 text-sm font-medium text-gray-500"
-          >
-            Inda Obanyi{" "}
-            <span className="text-cyan-400">|</span>{" "}
-            AI/ML Practitioner &amp; Aspiring Machine Learning Engineer
-          </motion.p>
-
-
-          {/* =================================================
-              TECHNICAL FOCUS
-          ================================================== */}
+          {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-7 flex flex-wrap gap-3"
+            className="mt-10 flex flex-col gap-4 sm:flex-row"
+          >
+            <Link
+              to="/#projects"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-400 px-7 py-3 font-semibold text-black transition hover:bg-cyan-300"
+            >
+              View My Projects
+              <ArrowRight size={17} />
+            </Link>
+
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3 font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-400"
+            >
+              Download Resume
+              <Download size={17} />
+            </a>
+          </motion.div>
+
+          {/* Skills */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-14 flex flex-wrap gap-3"
           >
             {[
-              "Machine Learning",
               "Python",
-              "Data Analysis",
-              "Feature Engineering",
-              "Model Evaluation",
-              "Model Deployment",
-            ].map((item) => (
+              "Machine Learning",
+              "Scikit-learn",
+              "Pandas",
+              "Streamlit",
+              "FastAPI",
+              "AI/ML",
+              "Git & GitHub",
+            ].map((skill) => (
               <span
-                key={item}
-                className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-gray-400 transition hover:border-cyan-400/30 hover:text-cyan-300"
+                key={skill}
+                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-400 transition hover:border-cyan-400/30 hover:text-cyan-400"
               >
-                {item}
+                {skill}
               </span>
             ))}
           </motion.div>
-
-
-          {/* =================================================
-              CALL TO ACTION
-          ================================================== */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-9 flex flex-wrap gap-4"
-          >
-
-            {/* Projects */}
-
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3.5 text-sm font-semibold text-black transition hover:bg-cyan-300"
-            >
-              Explore My Projects
-              <ArrowRight size={17} />
-            </a>
-
-
-            {/* Resume */}
-
-            <a
-              href="/resume/Inda-Obanyi-CV.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-3.5 text-sm font-medium text-gray-300 transition hover:border-cyan-400/40 hover:text-cyan-400"
-            >
-              <Download size={17} />
-              View Resume
-            </a>
-
-          </motion.div>
-
-
-          {/* =================================================
-              SOCIAL LINKS
-          ================================================== */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-9 flex flex-wrap items-center gap-6"
-          >
-
-            {/* GitHub */}
-
-            <a
-              href="https://github.com/Inda-Obanyi"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit Inda Obanyi's GitHub profile"
-              className="inline-flex items-center gap-2 text-sm font-medium text-gray-400 transition hover:text-cyan-400"
-            >
-              <span className="font-bold text-white">
-                GH
-              </span>
-
-              GitHub
-            </a>
-
-
-            {/* LinkedIn */}
-
-            <a
-              href="https://www.linkedin.com/in/inda-obanyi-8886553a6"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit Inda Obanyi's LinkedIn profile"
-              className="inline-flex items-center gap-2 text-sm font-medium text-gray-400 transition hover:text-cyan-400"
-            >
-              <span className="font-bold text-white">
-                in
-              </span>
-
-              LinkedIn
-            </a>
-
-          </motion.div>
-
         </div>
 
-
-        {/* =====================================================
-            SCROLL INDICATOR
-        ====================================================== */}
-        <motion.a
-          href="#about"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          aria-label="Scroll to About section"
-          className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-gray-600 transition hover:text-cyan-400 sm:flex"
+        {/* Right Side */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="hidden lg:block"
         >
+          <div className="relative mx-auto max-w-md">
+            {/* Decorative Circle */}
+            <div className="absolute -inset-6 rounded-full border border-cyan-400/10" />
 
-          <span className="text-xs uppercase tracking-[0.25em]">
-            Scroll
-          </span>
+            <div className="absolute -inset-12 rounded-full border border-white/5" />
 
-          <ArrowDown
-            size={16}
-            className="animate-bounce"
-          />
+            {/* Main Card */}
+            <div className="relative rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm">
+              <p className="text-xs uppercase tracking-[0.3em] text-gray-600">
+                Focus
+              </p>
 
-        </motion.a>
+              <h2 className="mt-4 text-3xl font-bold text-white">
+                AI that solves
+                <span className="block text-cyan-400">
+                  real problems.
+                </span>
+              </h2>
 
+              <p className="mt-5 leading-7 text-gray-500">
+                Building practical machine learning applications across
+                fintech, recruitment, customer analytics, and social
+                impact.
+              </p>
+
+              <div className="mt-8 grid grid-cols-2 gap-3">
+                {[
+                  "Fraud Detection",
+                  "Resume Screening",
+                  "Customer Analytics",
+                  "Flood Risk",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-xl border border-white/10 bg-black/30 p-3 text-xs text-gray-400"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

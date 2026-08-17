@@ -1,260 +1,231 @@
 const projects = [
+  // ============================================================
+  // 1. FRAUDGUARD AI
+  // ============================================================
   {
-  id: "fraudguard-ai",
+    id: "fraudguard-ai",
 
-  title: "FraudGuard AI",
+    title: "FraudGuard AI",
 
-  category: "Machine Learning / FinTech",
+    category: "Machine Learning / FinTech",
 
-  shortDescription:
-    "A machine learning-powered mobile money fraud detection system designed to identify suspicious transaction patterns and support safer digital payments.",
+    shortDescription:
+      "A machine learning-powered mobile money fraud detection system designed to identify suspicious transaction patterns and support safer digital payments.",
 
-  description:
-    "FraudGuard AI is a machine learning application that analyzes mobile money transaction patterns to identify potentially fraudulent activities. The project demonstrates how supervised machine learning, feature engineering, class-imbalance handling, model evaluation, and deployment can be applied to a real-world financial security problem.",
+    description:
+      "FraudGuard AI is a machine learning application that analyzes mobile money transaction patterns to identify potentially fraudulent activities. The project demonstrates how supervised machine learning, feature engineering, class-imbalance handling, model evaluation, and deployment can be applied to a real-world financial security problem.",
 
-  technologies: [
-    "Python",
-    "Pandas",
-    "NumPy",
-    "Scikit-learn",
-    "Machine Learning",
-    "Feature Engineering",
-    "Streamlit",
-  ],
-
-  image: "/projects/fraudguard-ai.png",
-
-  github:
-    "https://github.com/Inda-Obanyi/mobile-money-fraud-prediction",
-
-  demo: "",
-
-  featured: true,
-
-  problem:
-    "The growth of mobile money and digital financial transactions has increased the need for intelligent systems capable of identifying suspicious transaction patterns. Manual review alone can be slow and difficult to scale.",
-
-  approach: [
-    "Defined the mobile money fraud detection problem.",
-    "Loaded and explored transaction data.",
-    "Performed data cleaning and exploratory data analysis.",
-    "Analyzed transaction patterns and relevant fraud indicators.",
-    "Engineered features for fraud classification.",
-    "Preprocessed the dataset for machine learning.",
-    "Addressed class imbalance where necessary.",
-    "Split the dataset into training and testing sets.",
-    "Trained and compared classification models.",
-    "Evaluated models using fraud-detection metrics.",
-    "Selected the best-performing model.",
-    "Prepared the prediction pipeline for Streamlit deployment.",
-  ],
-
-  pipeline: [
-    "Problem Definition",
-    "Data Loading",
-    "Data Understanding",
-    "Data Cleaning",
-    "Exploratory Data Analysis",
-    "Feature Engineering",
-    "Data Preprocessing",
-    "Class Imbalance Handling",
-    "Train-Test Split",
-    "Model Training",
-    "Model Evaluation",
-    "Model Selection",
-    "Fraud Prediction",
-    "Deployment",
-  ],
-
-  model: {
-    name: "Best Performing Classification Model",
-    type: "Binary Classification",
-    target: "Fraud vs Legitimate",
-  },
-
-  evaluation: {
-    metrics: [
-      "Accuracy",
-      "Precision",
-      "Recall",
-      "F1-Score",
-      "Confusion Matrix",
-    ],
-    focus:
-      "The model was evaluated using classification metrics with particular attention to precision, recall, and F1-score because fraud detection requires careful consideration of both false positives and false negatives.",
-  },
-
-  metrics: [],
-
-  highlights: [
-    "Mobile money fraud detection",
-    "Transaction pattern analysis",
-    "Feature engineering",
-    "Class imbalance handling",
-    "Classification model evaluation",
-    "Interactive Streamlit application",
-  ],
-
-  results:
-    "FraudGuard AI produced an end-to-end machine learning pipeline for identifying potentially fraudulent transactions and demonstrated how AI can be applied to improve digital financial security.",
-
-  lessonsLearned: [
-    "How machine learning can be applied to real-world financial fraud detection problems.",
-    "The importance of feature engineering when identifying suspicious transaction patterns.",
-    "Why class imbalance requires careful consideration in fraud classification problems.",
-    "Why precision, recall, and F1-score are particularly important in fraud detection.",
-    "How trained machine learning models can be integrated into interactive applications.",
-    "The importance of considering practical deployment when developing machine learning systems.",
-  ],
-},
-{
-  id: "resume-screening",
-
-  title: "Resume Screening Classifier",
-
-  category: "Machine Learning / Recruitment",
-
-  shortDescription:
-    "An intelligent machine learning system that classifies candidates as Fit or Not Fit based on relevant resume and job-related features.",
-
-  description:
-    "A machine learning classification system designed to support the initial recruitment screening process by identifying candidates whose qualifications and resume features align with a target role.",
-
-  technologies: [
-    "Python",
-    "Pandas",
-    "NumPy",
-    "Scikit-learn",
-    "SMOTE",
-    "Feature Engineering",
-    "Classification",
-    "Streamlit",
-  ],
-
-  image: "/projects/resume-screening.png",
-
-  github: "",
-
-  demo: "",
-
-  featured: true,
-
-  /* =====================================================
-     PROBLEM
-  ====================================================== */
-
-  problem:
-    "Recruiters often have to review large numbers of resumes manually. This project explores how machine learning can assist the initial screening process by classifying resumes into Fit and Not Fit categories.",
-
-  /* =====================================================
-     APPROACH
-  ====================================================== */
-
-  approach: [
-    "Defined the recruitment screening problem.",
-    "Loaded and explored the resume dataset.",
-    "Performed data cleaning and data quality checks.",
-    "Conducted exploratory data analysis to understand the dataset.",
-    "Engineered relevant features for candidate classification.",
-    "Preprocessed numerical and categorical features.",
-    "Handled class imbalance using SMOTE.",
-    "Split the dataset into training and testing sets.",
-    "Trained and compared classification models.",
-    "Evaluated models using classification performance metrics.",
-    "Selected the best-performing model.",
-    "Prepared the prediction pipeline for Streamlit deployment.",
-  ],
-
-  /* =====================================================
-     MACHINE LEARNING PIPELINE
-  ====================================================== */
-
-  pipeline: [
-    "Business Problem Understanding",
-    "Dataset Loading",
-    "Data Understanding",
-    "Data Cleaning",
-    "Exploratory Data Analysis",
-    "Feature Engineering",
-    "Data Preprocessing",
-    "Class Imbalance Handling",
-    "SMOTE",
-    "Train-Test Split",
-    "Model Training",
-    "Model Evaluation",
-    "Best Model Selection",
-    "Prediction System",
-    "Deployment Preparation",
-  ],
-
-  /* =====================================================
-     MODEL
-  ====================================================== */
-
-  model: {
-    name: "Best Performing Classification Model",
-    type: "Binary Classification",
-    target: "Fit vs Not Fit",
-  },
-
-  /* =====================================================
-     EVALUATION
-  ====================================================== */
-
-  evaluation: {
-    metrics: [
-      "Accuracy",
-      "Precision",
-      "Recall",
-      "F1-Score",
-      "Confusion Matrix",
+    technologies: [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "Machine Learning",
+      "Feature Engineering",
+      "SMOTE",
+      "Streamlit",
     ],
 
-    focus:
-      "The classification models were evaluated using accuracy, precision, recall, F1-score, and confusion matrix analysis. Particular attention was given to precision and recall because incorrectly classifying qualified or unsuitable candidates can affect the effectiveness of an automated screening system.",
+    image: "/projects/fraudguard-ai.png",
+
+    github:
+      "https://github.com/Inda-Obanyi/mobile-money-fraud-prediction",
+
+    demo: "",
+
+    featured: true,
+
+    problem:
+      "The growth of mobile money and digital financial transactions has increased the need for intelligent systems capable of identifying suspicious transaction patterns. Manual review alone can be slow and difficult to scale.",
+
+    approach: [
+      "Defined the mobile money fraud detection problem.",
+      "Loaded and explored transaction data.",
+      "Performed data cleaning and exploratory data analysis.",
+      "Analyzed transaction patterns and relevant fraud indicators.",
+      "Engineered features for machine learning.",
+      "Preprocessed the dataset for model training.",
+      "Addressed class imbalance where necessary.",
+      "Trained classification models.",
+      "Evaluated models using fraud-detection metrics.",
+      "Selected the best-performing model.",
+      "Prepared the model for interactive deployment.",
+    ],
+
+    pipeline: [
+      "Problem Definition",
+      "Data Loading",
+      "Data Understanding",
+      "Data Cleaning",
+      "Exploratory Data Analysis",
+      "Feature Engineering",
+      "Data Preprocessing",
+      "Class Imbalance Handling",
+      "Model Training",
+      "Model Evaluation",
+      "Model Selection",
+      "Fraud Prediction",
+      "Deployment",
+    ],
+
+    model: {
+      name: "Best Performing Classification Model",
+      type: "Binary Classification",
+      target: "Fraud vs Legitimate Transaction",
+    },
+
+    evaluation: {
+      metrics: [
+        "Accuracy",
+        "Precision",
+        "Recall",
+        "F1-Score",
+        "Confusion Matrix",
+      ],
+
+      focus:
+        "FraudGuard AI focuses on evaluating the model using multiple classification metrics, with particular attention to precision and recall because false positives and false negatives can have different consequences in financial fraud detection.",
+    },
+
+    metrics: [],
+
+    results:
+      "FraudGuard AI produced an end-to-end machine learning pipeline for identifying potentially fraudulent transactions and demonstrated how AI can be applied to improve digital financial security.",
+
+    lessonsLearned: [
+      "How machine learning can be applied to real-world financial fraud detection problems.",
+      "The importance of feature engineering when identifying suspicious transaction patterns.",
+      "Why class imbalance requires careful consideration in fraud classification problems.",
+      "Why precision, recall, and F1-score are important when evaluating fraud detection systems.",
+      "How a trained machine learning model can be integrated into an interactive application.",
+      "The importance of building machine learning systems with practical deployment and user needs in mind.",
+    ],
+
+    highlights: [
+      "Mobile money fraud detection",
+      "Feature engineering",
+      "Class imbalance handling",
+      "Fraud classification",
+      "Risk analysis",
+      "Interactive Streamlit application",
+    ],
   },
-  
-  metrics: [],
 
-  /* =====================================================
-     RESULTS
-  ====================================================== */
 
-  results:
-    "The project produced an end-to-end machine learning classification pipeline capable of predicting candidate suitability and provides a foundation for an interactive recruitment screening application.",
-
-  /* =====================================================
-     LESSONS LEARNED
-  ====================================================== */
-
-  lessonsLearned: [
-    "The importance of careful preprocessing before model training.",
-    "Why class imbalance can significantly affect classification performance.",
-    "How SMOTE can be used to improve representation of minority classes.",
-    "The importance of evaluating classification models beyond accuracy.",
-    "How machine learning models can be prepared for practical deployment.",
-    "The importance of designing machine learning systems around real-world user needs.",
-  ],
-
-  /* =====================================================
-     PROJECT HIGHLIGHTS
-  ====================================================== */
-
-  highlights: [
-    "Automated candidate screening",
-    "Binary classification",
-    "Class imbalance handling with SMOTE",
-    "Feature engineering",
-    "Classification model comparison",
-    "Model evaluation using multiple metrics",
-    "Interactive Streamlit application",
-    "End-to-end ML pipeline",
-  ],
-},
   // ============================================================
-  // AIRLINE CUSTOMER SATISFACTION
+  // 2. RESUME SCREENING CLASSIFIER
   // ============================================================
+  {
+    id: "resume-screening",
 
+    title: "Resume Screening Classifier",
+
+    category: "Machine Learning / Recruitment",
+
+    shortDescription:
+      "An intelligent machine learning system that classifies candidates as Fit or Not Fit based on relevant resume and job-related features.",
+
+    description:
+      "A machine learning classification system designed to support the initial recruitment screening process by identifying candidates whose qualifications and resume features align with a target role.",
+
+    technologies: [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "SMOTE",
+      "Feature Engineering",
+      "Classification",
+      "Streamlit",
+    ],
+
+    image: "/projects/resume-screening.png",
+
+    github: "",
+
+    demo: "",
+
+    featured: true,
+
+    problem:
+      "Recruiters often have to review large numbers of resumes manually. This project explores how machine learning can assist the initial screening process by classifying resumes into Fit and Not Fit categories.",
+
+    approach: [
+      "Defined the recruitment screening problem.",
+      "Loaded and explored the resume dataset.",
+      "Performed data cleaning and data quality checks.",
+      "Conducted exploratory data analysis.",
+      "Engineered relevant features for candidate classification.",
+      "Preprocessed numerical and categorical features.",
+      "Handled class imbalance using SMOTE.",
+      "Split the dataset into training and testing sets.",
+      "Trained and compared classification models.",
+      "Evaluated models using classification performance metrics.",
+      "Selected the best-performing model.",
+      "Prepared the prediction pipeline for Streamlit deployment.",
+    ],
+
+    pipeline: [
+      "Business Problem Understanding",
+      "Dataset Loading",
+      "Data Understanding",
+      "Data Cleaning",
+      "Exploratory Data Analysis",
+      "Feature Engineering",
+      "Data Preprocessing",
+      "Class Imbalance Handling",
+      "SMOTE",
+      "Train-Test Split",
+      "Model Training",
+      "Model Evaluation",
+      "Best Model Selection",
+      "Prediction System",
+      "Deployment Preparation",
+    ],
+
+    model: {
+      name: "Best Performing Classification Model",
+      type: "Binary Classification",
+      target: "Fit vs Not Fit",
+    },
+
+    evaluation: {
+      metrics: [
+        "Accuracy",
+        "Precision",
+        "Recall",
+        "F1-Score",
+        "Confusion Matrix",
+      ],
+
+      focus:
+        "The classification models were evaluated using accuracy, precision, recall, F1-score, and confusion matrix analysis. Particular attention was given to precision and recall because incorrectly classifying qualified or unsuitable candidates can affect the effectiveness of an automated screening system.",
+    },
+
+    metrics: [],
+
+    highlights: [
+      "Automated candidate screening",
+      "Class imbalance handling with SMOTE",
+      "Feature engineering",
+      "Classification model comparison",
+      "Interactive Streamlit application",
+    ],
+
+    results:
+      "The project produced an end-to-end machine learning classification pipeline capable of predicting candidate suitability and provides a foundation for an interactive recruitment screening application.",
+
+    lessonsLearned: [
+      "The importance of careful preprocessing before model training.",
+      "Why class imbalance can significantly affect classification performance.",
+      "How SMOTE can be used to improve representation of minority classes.",
+      "The importance of evaluating classification models beyond accuracy.",
+      "How machine learning models can be prepared for practical deployment.",
+    ],
+  },
+
+
+  // ============================================================
+  // 3. AIRLINE CUSTOMER SATISFACTION
+  // ============================================================
   {
     id: "airline-satisfaction",
 
@@ -292,7 +263,7 @@ const projects = [
     approach: [
       "Loaded and explored the airline customer satisfaction dataset.",
       "Inspected variables, data types, and data quality.",
-      "Cleaned the dataset and prepared the relevant variables.",
+      "Cleaned the dataset and prepared relevant variables.",
       "Performed exploratory data analysis.",
       "Identified relevant customer-experience features.",
       "Encoded categorical variables for machine learning.",
@@ -334,7 +305,7 @@ const projects = [
       ],
 
       focus:
-        "The model was evaluated using multiple classification metrics to understand its ability to correctly distinguish satisfied and dissatisfied passengers. Feature analysis was also used to identify service factors associated with customer satisfaction.",
+        "The model was evaluated using standard classification metrics while feature coefficients were analyzed to understand which service-related variables were associated with customer satisfaction.",
     },
 
     metrics: [],
@@ -360,10 +331,10 @@ const projects = [
     ],
   },
 
-  // ============================================================
-  // FLOODGUARD AI
-  // ============================================================
 
+  // ============================================================
+  // 4. FLOODGUARD AI
+  // ============================================================
   {
     id: "floodguard-ai",
 
@@ -403,14 +374,14 @@ const projects = [
 
     approach: [
       "Identified key flood-risk and emergency-response requirements.",
-      "Explored the use of environmental and historical data for flood-risk analysis.",
+      "Explored environmental and historical data for flood-risk analysis.",
       "Designed an AI-assisted flood awareness and risk information system.",
       "Designed a national flood-risk visualization concept.",
       "Included emergency shelter and resource information.",
       "Designed an AI chatbot for user assistance.",
-      "Explored communication channels including web, SMS, USSD, and WhatsApp.",
+      "Explored web, SMS, USSD, and WhatsApp communication channels.",
       "Designed the solution with accessibility for users without smartphones in mind.",
-      "Planned the system for broader deployment across Nigeria.",
+      "Planned the solution for broader deployment across Nigeria.",
     ],
 
     pipeline: [
@@ -467,7 +438,6 @@ const projects = [
       "The importance of combining AI with reliable data and communication systems.",
       "How emergency systems need to prioritize accessibility and timely information.",
       "How AI can be applied to real-world social-impact problems.",
-      "The importance of clearly distinguishing between a prototype concept and a validated predictive model.",
     ],
   },
 ];

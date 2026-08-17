@@ -1,8 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import {
   ArrowLeft,
-  ExternalLink,
+  ArrowRight,
   CheckCircle2,
+  ExternalLink,
 } from "lucide-react";
 import projects from "../data/projects";
 
@@ -11,9 +12,9 @@ function ProjectDetails() {
 
   const project = projects.find((item) => item.id === id);
 
-  /* =====================================================
+  /* =========================================================
      PROJECT NOT FOUND
-  ====================================================== */
+  ========================================================== */
 
   if (!project) {
     return (
@@ -28,7 +29,7 @@ function ProjectDetails() {
             We couldn't find this project.
           </h1>
 
-          <p className="mt-4 text-gray-400">
+          <p className="mx-auto mt-4 max-w-xl text-gray-400">
             The project you're looking for doesn't exist or may have
             been moved.
           </p>
@@ -47,14 +48,15 @@ function ProjectDetails() {
   }
 
 
-  /* =====================================================
+  /* =========================================================
      DYNAMIC SECTION NUMBERING
-  ====================================================== */
+  ========================================================== */
 
   let sectionNumber = 0;
 
   const getSectionNumber = () => {
     sectionNumber += 1;
+
     return String(sectionNumber).padStart(2, "0");
   };
 
@@ -70,8 +72,6 @@ function ProjectDetails() {
 
         <div className="mx-auto max-w-6xl">
 
-          {/* Back to Portfolio */}
-
           <Link
             to="/"
             className="inline-flex items-center gap-2 text-sm text-gray-500 transition hover:text-cyan-400"
@@ -83,9 +83,7 @@ function ProjectDetails() {
 
           <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
 
-            {/* =================================================
-                PROJECT INFORMATION
-            ================================================== */}
+            {/* Project information */}
 
             <div>
 
@@ -93,22 +91,40 @@ function ProjectDetails() {
                 {project.category}
               </p>
 
-
               <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
                 {project.title}
               </h1>
-
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-400">
                 {project.description}
               </p>
 
 
-              {/* =================================================
-                  PROJECT LINKS
-              ================================================== */}
+              {/* Actions */}
 
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-wrap gap-3">
+
+                <Link
+                  to="/#projects"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-gray-300 transition hover:border-cyan-400/30 hover:text-cyan-400"
+                >
+                  <ArrowLeft size={16} />
+                  All Projects
+                </Link>
+
+
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-gray-300 transition hover:border-cyan-400/30 hover:text-cyan-400"
+                  >
+                    GitHub
+                    <ExternalLink size={16} />
+                  </a>
+                )}
+
 
                 {project.demo && project.demo !== "#" && (
                   <a
@@ -117,8 +133,8 @@ function ProjectDetails() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-5 py-3 text-sm font-semibold text-black transition hover:bg-cyan-300"
                   >
-                    <ExternalLink size={17} />
                     Live Demo
+                    <ExternalLink size={16} />
                   </a>
                 )}
 
@@ -127,17 +143,21 @@ function ProjectDetails() {
             </div>
 
 
-            {/* =================================================
-                PROJECT IMAGE
-            ================================================== */}
+            {/* Project image */}
 
-            <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+            <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
 
-              <img
-                src={project.image}
-                alt={`${project.title} project preview`}
-                className="h-full min-h-[240px] w-full object-cover sm:min-h-[300px]"
-              />
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={`${project.title} preview`}
+                  className="aspect-video w-full object-cover"
+                />
+              ) : (
+                <div className="flex aspect-video items-center justify-center text-gray-600">
+                  Project Preview
+                </div>
+              )}
 
             </div>
 
@@ -152,31 +172,32 @@ function ProjectDetails() {
           TECHNOLOGIES
       ====================================================== */}
 
-      <section className="border-y border-white/10 px-6 py-12">
+      {project.technologies?.length > 0 && (
+        <section className="border-y border-white/10 px-6 py-12">
 
-        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-6xl">
 
-          <p className="text-sm uppercase tracking-[0.25em] text-gray-600">
-            Technologies
-          </p>
+            <p className="text-sm uppercase tracking-[0.25em] text-gray-600">
+              Technologies
+            </p>
 
+            <div className="mt-5 flex flex-wrap gap-3">
 
-          <div className="mt-5 flex flex-wrap gap-3">
+              {project.technologies.map((technology) => (
+                <span
+                  key={technology}
+                  className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-gray-300"
+                >
+                  {technology}
+                </span>
+              ))}
 
-            {project.technologies?.map((technology) => (
-              <span
-                key={technology}
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300"
-              >
-                {technology}
-              </span>
-            ))}
+            </div>
 
           </div>
 
-        </div>
-
-      </section>
+        </section>
+      )}
 
 
       {/* =====================================================
@@ -194,6 +215,7 @@ function ProjectDetails() {
             ================================================== */}
 
             <div className="space-y-16">
+
 
               {/* =================================================
                   PROBLEM
@@ -237,7 +259,7 @@ function ProjectDetails() {
 
                     {project.approach.map((step, index) => (
                       <div
-                        key={step}
+                        key={`${project.id}-approach-${index}`}
                         className="flex gap-4 rounded-xl border border-white/10 bg-white/[0.02] p-5"
                       >
 
@@ -275,8 +297,6 @@ function ProjectDetails() {
 
                   <div className="mt-7 grid gap-4 sm:grid-cols-3">
 
-                    {/* Model */}
-
                     <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
 
                       <p className="text-xs uppercase tracking-wider text-gray-600">
@@ -290,8 +310,6 @@ function ProjectDetails() {
                     </div>
 
 
-                    {/* Type */}
-
                     <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
 
                       <p className="text-xs uppercase tracking-wider text-gray-600">
@@ -304,8 +322,6 @@ function ProjectDetails() {
 
                     </div>
 
-
-                    {/* Target */}
 
                     <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
 
@@ -329,11 +345,8 @@ function ProjectDetails() {
                   EVALUATION
               ================================================== */}
 
-              {(
-                project.metrics?.length > 0 ||
-                project.evaluation?.metrics?.length > 0 ||
-                project.evaluation?.focus
-              ) && (
+              {(project.evaluation ||
+                project.metrics?.length > 0) && (
                 <section>
 
                   <p className="text-sm uppercase tracking-[0.25em] text-cyan-400">
@@ -345,9 +358,7 @@ function ProjectDetails() {
                   </h2>
 
 
-                  {/* =================================================
-                      ACTUAL PERFORMANCE METRICS
-                  ================================================== */}
+                  {/* Actual metrics */}
 
                   {project.metrics?.length > 0 && (
                     <div className="mt-7 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -373,15 +384,13 @@ function ProjectDetails() {
                   )}
 
 
-                  {/* =================================================
-                      EVALUATION METRICS / CRITERIA
-                  ================================================== */}
+                  {/* Evaluation metrics */}
 
                   {project.evaluation?.metrics?.length > 0 && (
                     <div className="mt-7">
 
                       <p className="text-sm text-gray-500">
-                        Evaluation metrics considered
+                        Evaluation criteria
                       </p>
 
                       <div className="mt-4 flex flex-wrap gap-3">
@@ -401,9 +410,7 @@ function ProjectDetails() {
                   )}
 
 
-                  {/* =================================================
-                      EVALUATION EXPLANATION
-                  ================================================== */}
+                  {/* Evaluation explanation */}
 
                   {project.evaluation?.focus && (
                     <p className="mt-6 max-w-3xl text-lg leading-8 text-gray-400">
@@ -455,9 +462,9 @@ function ProjectDetails() {
 
                   <div className="mt-7 space-y-4">
 
-                    {project.lessonsLearned.map((lesson) => (
+                    {project.lessonsLearned.map((lesson, index) => (
                       <div
-                        key={lesson}
+                        key={`${project.id}-lesson-${index}`}
                         className="flex gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-5"
                       >
 
@@ -487,9 +494,7 @@ function ProjectDetails() {
 
             <aside className="lg:sticky lg:top-24 lg:self-start">
 
-              {/* =================================================
-                  ML PIPELINE
-              ================================================== */}
+              {/* ML PIPELINE */}
 
               {project.pipeline?.length > 0 && (
                 <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-7">
@@ -502,7 +507,7 @@ function ProjectDetails() {
 
                     {project.pipeline.map((step, index) => (
                       <div
-                        key={step}
+                        key={`${project.id}-pipeline-${index}`}
                         className="flex items-start gap-3"
                       >
 
@@ -523,9 +528,7 @@ function ProjectDetails() {
               )}
 
 
-              {/* =================================================
-                  HIGHLIGHTS
-              ================================================== */}
+              {/* HIGHLIGHTS */}
 
               {project.highlights?.length > 0 && (
                 <div className="mt-6 rounded-3xl border border-white/10 bg-white/[0.03] p-7">
@@ -536,9 +539,9 @@ function ProjectDetails() {
 
                   <ul className="mt-6 space-y-3">
 
-                    {project.highlights.map((highlight) => (
+                    {project.highlights.map((highlight, index) => (
                       <li
-                        key={highlight}
+                        key={`${project.id}-highlight-${index}`}
                         className="flex gap-3 text-sm leading-6 text-gray-400"
                       >
 
@@ -576,11 +579,19 @@ function ProjectDetails() {
         <div className="mx-auto flex max-w-6xl items-center justify-between">
 
           <Link
-            to="/"
+            to="/#projects"
             className="inline-flex items-center gap-2 text-sm text-gray-500 transition hover:text-cyan-400"
           >
             <ArrowLeft size={16} />
             All Projects
+          </Link>
+
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-sm text-gray-500 transition hover:text-cyan-400"
+          >
+            Portfolio Home
+            <ArrowRight size={16} />
           </Link>
 
         </div>
