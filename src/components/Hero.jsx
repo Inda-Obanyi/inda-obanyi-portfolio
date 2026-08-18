@@ -68,14 +68,13 @@ function Hero() {
             </Link>
 
             <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3 font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-400"
-            >
-              Download Resume
-              <Download size={17} />
-            </a>
+  href="/resume/Inda-Obanyi-CV.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-3 text-sm font-semibold text-gray-300 transition hover:border-cyan-400/30 hover:text-cyan-400"
+>
+  Download CV
+</a>
           </motion.div>
 
           {/* Skills */}
