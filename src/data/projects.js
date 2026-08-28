@@ -455,7 +455,6 @@ const projects = [
     ],
   },
 
-
   // ============================================================
   // 4. FLOODGUARD AI
   // ============================================================
@@ -464,18 +463,19 @@ const projects = [
 
     title: "FloodGuard AI",
 
-    category: "AI for Social Impact",
+    category: "AI / Climate Tech / Social Impact",
 
     shortDescription:
-      "An AI-powered flood risk and emergency response solution designed to improve flood awareness, preparedness, and community safety.",
+      "An AI-powered flood risk and emergency response platform designed to improve flood awareness, preparedness, accessibility, and community safety across Nigeria.",
 
     description:
-      "FloodGuard AI is a technology solution focused on combining artificial intelligence, data, emergency communication, and digital platforms to help communities prepare for and respond to flood risks.",
+      "FloodGuard AI is a Nigeria-focused AI-powered flood awareness and emergency response platform that combines artificial intelligence, flood-risk information, emergency guidance, national risk visualization, and multi-channel accessibility through web, SMS, USSD, and WhatsApp concepts.",
 
     technologies: [
       "Python",
       "Artificial Intelligence",
-      "Machine Learning",
+      "Machine Learning Concepts",
+      "Generative AI",
       "Data Analysis",
       "Risk Analysis",
       "Streamlit",
@@ -487,81 +487,87 @@ const projects = [
 
     image: "/projects/floodguard-ai.png",
 
-    github: "",
+    github: "https://github.com/Inda-Obanyi/floodguard-ninja",
 
-    demo: "",
+    demo: "https://3e7e648e.mydala.app",
 
     featured: true,
 
     problem:
-      "Flooding can cause significant damage to communities, infrastructure, homes, and livelihoods. Access to timely and understandable risk information can help people make better safety decisions before and during flood emergencies.",
+      "Flooding is a recurring environmental and humanitarian challenge in Nigeria, affecting homes, infrastructure, agriculture, businesses, transportation, and livelihoods. A major challenge is the difficulty many communities face in accessing timely, understandable, and actionable flood-risk and emergency information, especially users with limited internet access or without smartphones.",
 
     approach: [
-      "Identified key flood-risk and emergency-response requirements.",
-      "Explored environmental and historical data for flood-risk analysis.",
-      "Designed an AI-assisted flood awareness and risk information system.",
-      "Designed a national flood-risk visualization concept.",
-      "Included emergency shelter and resource information.",
-      "Designed an AI chatbot for user assistance.",
-      "Explored web, SMS, USSD, and WhatsApp communication channels.",
-      "Designed the solution with accessibility for users without smartphones in mind.",
-      "Planned the solution for broader deployment across Nigeria.",
+      "Identified the gap between flood-risk information and actionable community safety guidance.",
+      "Designed a Nigeria-focused AI-powered flood awareness and emergency response platform.",
+      "Designed a national flood-risk visualization concept covering Nigerian states and the Federal Capital Territory.",
+      "Integrated an AI assistant for natural-language flood safety and preparedness support.",
+      "Added emergency preparedness and response information for before, during, and after flood events.",
+      "Included emergency shelter and resource information to support users during potential emergencies.",
+      "Designed multi-channel accessibility through web, SMS, USSD, and WhatsApp.",
+      "Considered users with limited internet connectivity and users without smartphones.",
+      "Designed the solution as an MVP that can later integrate real-time environmental datasets and machine-learning prediction models.",
+      "Structured the platform for potential future expansion into a nationwide AI-powered flood early-warning ecosystem.",
     ],
 
     pipeline: [
       "Problem Identification",
-      "Data Collection",
-      "Data Analysis",
-      "Risk Assessment",
+      "Flood-Risk Research",
+      "Data & Information Analysis",
+      "Risk Awareness Design",
       "AI Integration",
-      "Risk Visualization",
+      "National Risk Visualization",
       "Emergency Information",
-      "AI Chatbot",
-      "SMS Integration",
-      "USSD Integration",
-      "WhatsApp Integration",
-      "Deployment Planning",
+      "AI Assistant",
+      "SMS Accessibility",
+      "USSD Accessibility",
+      "WhatsApp Integration Concept",
+      "Deployment & Scalability Planning",
     ],
 
     model: {
-      name: "AI-Assisted Risk Analysis System",
-      type: "AI / Data-Driven Risk Assessment",
-      target: "Flood Risk Awareness and Emergency Support",
+      name: "AI-Powered Flood Risk & Emergency Information Platform",
+      type: "AI / Data-Driven Risk Awareness System",
+      target: "Flood Awareness, Preparedness, and Emergency Support",
     },
 
     evaluation: {
       metrics: [
-        "Risk Assessment Framework",
-        "Data-Driven Analysis",
+        "Risk Awareness",
         "Accessibility",
-        "Emergency Response Support",
+        "AI Assistance",
+        "Emergency Support",
         "Multi-Channel Communication",
+        "Scalability",
       ],
 
       focus:
-        "FloodGuard AI was evaluated at the solution-design level, focusing on how effectively the proposed system could combine risk analysis, accessibility, emergency communication, and AI-assisted support. Since the current version is a concept and prototype rather than a fully deployed predictive flood model, no fabricated model accuracy metrics are presented.",
+        "FloodGuard AI was evaluated at the MVP and solution-design level, focusing on risk awareness, accessibility, AI-assisted support, emergency preparedness, multi-channel communication, and scalability. The current version is not presented as a fully deployed predictive flood model, so no fabricated model accuracy or performance metrics are reported.",
     },
 
     metrics: [],
 
     highlights: [
-      "Flood-risk awareness",
-      "AI-assisted emergency support",
-      "National risk visualization concept",
-      "AI chatbot",
-      "SMS and USSD accessibility",
-      "WhatsApp integration concept",
-      "Emergency shelter information",
+      "Nigeria-focused flood-risk awareness",
+      "AI-powered flood information assistant",
+      "National flood-risk visualization concept",
+      "Emergency preparedness and safety guidance",
+      "Emergency shelter and resource information",
+      "SMS accessibility concept",
+      "USSD accessibility concept",
+      "WhatsApp communication concept",
+      "Designed for future ML-based flood prediction",
+      "Scalable social-impact architecture",
     ],
 
     results:
-      "FloodGuard AI demonstrates how AI, data, and multiple communication channels can be combined to create a practical social-impact solution for flood awareness, preparedness, and emergency response.",
+      "FloodGuard AI demonstrates how artificial intelligence, data-driven risk awareness, emergency information, and multi-channel accessibility can be combined into a practical social-impact solution for flood preparedness and community safety. The MVP establishes a foundation for future integration of real-time environmental data, machine-learning prediction, automated alerts, and advanced GIS capabilities.",
 
     lessonsLearned: [
-      "How technology solutions should consider users with different levels of digital access.",
-      "The importance of combining AI with reliable data and communication systems.",
-      "How emergency systems need to prioritize accessibility and timely information.",
-      "How AI can be applied to real-world social-impact problems.",
+      "AI solutions should be designed around real-world problems and measurable human impact.",
+      "Accessibility is critical when building emergency and public-safety technology.",
+      "Reliable environmental and geographic data are essential for meaningful flood-risk prediction.",
+      "AI becomes more useful when it is connected to relevant domain information and actionable guidance.",
+      "Prototype development helps validate a solution concept before investing in complex predictive infrastructure.",
     ],
   },
 ];
