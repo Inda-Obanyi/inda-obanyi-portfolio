@@ -235,116 +235,274 @@ const projects = [
 },
 
 
-  // ============================================================
-  // 2. RESUME SCREENING CLASSIFIER
-  // ============================================================
-  {
-    id: "resume-screening",
+// ============================================================
+// 2. RESUME SCREENING AI
+// ============================================================
+{
+  id: "resume-screening",
 
-    title: "Resume Screening Classifier",
+  title: "Resume Screening AI",
 
-    category: "Machine Learning / Recruitment",
+  category: "Machine Learning / NLP / Recruitment",
 
-    shortDescription:
-      "An intelligent machine learning system that classifies candidates as Fit or Not Fit based on relevant resume and job-related features.",
+  shortDescription:
+    "An AI-powered resume screening and candidate-job matching system that combines machine learning, NLP, skill analysis, experience, education, and job-specific requirements to assess and rank candidates.",
 
-    description:
-      "A machine learning classification system designed to support the initial recruitment screening process by identifying candidates whose qualifications and resume features align with a target role.",
+  description:
+    "Resume Screening AI is an end-to-end machine learning and natural language processing application designed to assist the initial recruitment screening process. The system analyzes PDF and DOCX resumes against predefined job roles or custom job descriptions, extracts candidate information, evaluates skills, experience, education, and textual relevance, and produces structured candidate assessments. It also supports batch screening, candidate ranking, and shortlist identification.",
 
-    technologies: [
+  technologies: [
+    "Python",
+    "Pandas",
+    "NumPy",
+    "Scikit-learn",
+    "Machine Learning",
+    "Natural Language Processing",
+    "TF-IDF",
+    "Cosine Similarity",
+    "Feature Engineering",
+    "SMOTE",
+    "PyPDF",
+    "python-docx",
+    "Streamlit",
+    "Git",
+    "GitHub",
+  ],
+
+  image: "/projects/resume-screening.png",
+
+  github:
+    "https://github.com/Inda-Obanyi/Resume-Screening-AI",
+
+  demo:
+    "https://resume-screening-ai-h.streamlit.app/",
+
+  featured: true,
+
+  problem:
+    "Recruiters often review large numbers of resumes manually against different job requirements. This process can be time-consuming, difficult to scale, and inconsistent. Resume Screening AI addresses this challenge by combining machine learning, NLP, structured qualification analysis, and candidate ranking to support faster and more consistent initial screening.",
+
+  approach: [
+    "Defined the candidate screening and classification problem.",
+    "Loaded and analyzed the resume dataset.",
+    "Performed data cleaning and data quality checks.",
+    "Conducted exploratory data analysis.",
+    "Engineered features relevant to candidate suitability.",
+    "Preprocessed numerical and categorical features.",
+    "Handled class imbalance using SMOTE.",
+    "Split the dataset into training and testing sets.",
+    "Trained and compared multiple classification models.",
+    "Evaluated models using accuracy, F1-score, and ROC-AUC.",
+    "Selected the classification approach for the screening pipeline.",
+    "Built resume parsing and candidate information extraction.",
+    "Added predefined job-role requirements and custom job-description support.",
+    "Implemented skill extraction and skill matching.",
+    "Implemented candidate experience analysis.",
+    "Implemented education qualification matching.",
+    "Implemented TF-IDF vectorization and cosine similarity.",
+    "Developed controlled relevance scoring.",
+    "Combined multiple screening signals into an overall candidate assessment.",
+    "Implemented single-resume screening.",
+    "Implemented batch resume screening.",
+    "Added candidate ranking and shortlist identification.",
+    "Integrated the complete workflow into Streamlit.",
+    "Deployed the application for public demonstration.",
+  ],
+
+  pipeline: [
+    "Business Problem Understanding",
+    "Dataset Loading",
+    "Data Understanding",
+    "Data Cleaning",
+    "Exploratory Data Analysis",
+    "Feature Engineering",
+    "Data Preprocessing",
+    "Class Imbalance Handling",
+    "SMOTE",
+    "Train-Test Split",
+    "Model Training",
+    "Model Comparison",
+    "Model Evaluation",
+    "Best Model / Pipeline Selection",
+    "Resume Parsing",
+    "Candidate Information Extraction",
+    "Job Role Configuration",
+    "Skill Matching",
+    "Experience Analysis",
+    "Education Matching",
+    "TF-IDF Vectorization",
+    "Cosine Similarity",
+    "Controlled Relevance Scoring",
+    "Candidate Assessment",
+    "Candidate Ranking",
+    "Batch Screening",
+    "Streamlit Integration",
+    "Cloud Deployment",
+  ],
+
+  model: {
+    name: "Random Forest",
+    type: "Binary Classification",
+    target: "Fit vs Not Fit",
+
+    comparison: [
+      {
+        name: "Majority Baseline",
+        accuracy: "70.61%",
+        f1Score: "82.77%",
+        rocAuc: "0.5000",
+      },
+      {
+        name: "Logistic Regression",
+        accuracy: "51.97%",
+        f1Score: "58.91%",
+        rocAuc: "0.5586",
+      },
+      {
+        name: "Random Forest",
+        accuracy: "70.42%",
+        f1Score: "82.59%",
+        rocAuc: "0.5425",
+      },
+      {
+        name: "HistGradientBoosting",
+        accuracy: "70.61%",
+        f1Score: "82.77%",
+        rocAuc: "0.5566",
+      },
+    ],
+
+    note:
+      "Random Forest was used as the selected classification model in the project pipeline. Model comparison was performed using accuracy, F1-score, and ROC-AUC, while the deployed application extends the classification workflow with structured candidate analysis and NLP-based matching.",
+  },
+
+  evaluation: {
+    metrics: [
+      "Accuracy",
+      "F1-Score",
+      "ROC-AUC",
+      "Confusion Matrix",
+      "Skill Match",
+      "Experience Score",
+      "Education Score",
+      "TF-IDF Similarity",
+      "Controlled Relevance",
+    ],
+
+    trainingResults: {
+      randomForest: {
+        accuracy: "70.42%",
+        f1Score: "82.59%",
+        rocAuc: "0.5425",
+      },
+    },
+
+    focus:
+      "The initial classification models were compared using accuracy, F1-score, and ROC-AUC. Because recruitment screening involves imbalanced outcomes and different types of classification errors, the evaluation considered more than accuracy alone. The deployed application further combines the machine learning workflow with structured qualification analysis and NLP-based resume/job-description matching.",
+  },
+
+  metrics: [
+    {
+      label: "Random Forest Accuracy",
+      value: "70.42%",
+    },
+    {
+      label: "Random Forest F1-Score",
+      value: "82.59%",
+    },
+    {
+      label: "Random Forest ROC-AUC",
+      value: "0.5425",
+    },
+  ],
+
+  highlights: [
+    "AI-assisted resume screening",
+    "Machine learning candidate classification",
+    "NLP-powered resume/job matching",
+    "TF-IDF and cosine similarity",
+    "Controlled relevance scoring",
+    "Job-role-specific screening",
+    "Skill extraction and matching",
+    "Experience analysis",
+    "Education matching",
+    "Single resume screening",
+    "Batch screening",
+    "Candidate ranking",
+    "Shortlist identification",
+    "SMOTE for class imbalance",
+    "Interactive Streamlit application",
+    "Cloud deployment",
+  ],
+
+  results:
+    "The project evolved from a machine learning Fit vs Not Fit classification experiment into a more comprehensive AI-assisted recruitment screening application. The deployed system can analyze individual resumes or batches of candidates, compare them against job-specific requirements, identify matched and missing skills, evaluate experience and education, calculate TF-IDF resume/job-description similarity, generate controlled relevance scores, and rank candidates for further review.",
+
+  exampleResult: {
+    candidate: "David Adeyemi",
+
+    finalScore: "69.09%",
+
+    resumeMatch: "39.69%",
+
+    skillMatch: "83.33%",
+
+    experienceScore: "100%",
+
+    educationScore: "100%",
+
+    controlledRelevance: "70.88%",
+
+    detectedExperience: "6.33 years",
+
+    requiredExperience: "2 years",
+
+    requiredSkills: 17,
+
+    detectedSkills: 18,
+
+    matchedSkills: 13,
+
+    missingSkills: 4,
+
+    matchedSkillsList: [
       "Python",
+      "FastAPI",
+      "Machine Learning",
+      "Data Science",
       "Pandas",
+      "NumPy",
       "Scikit-learn",
-      "SMOTE",
-      "Feature Engineering",
-      "Classification",
-      "Streamlit",
+      "TensorFlow",
+      "SQL",
+      "AWS",
+      "Docker",
+      "Git",
+      "GitHub",
     ],
 
-    image: "/projects/resume-screening.png",
-
-    github: "",
-
-    demo: "",
-
-    featured: true,
-
-    problem:
-      "Recruiters often have to review large numbers of resumes manually. This project explores how machine learning can assist the initial screening process by classifying resumes into Fit and Not Fit categories.",
-
-    approach: [
-      "Defined the recruitment screening problem.",
-      "Loaded and explored the resume dataset.",
-      "Performed data cleaning and data quality checks.",
-      "Conducted exploratory data analysis.",
-      "Engineered relevant features for candidate classification.",
-      "Preprocessed numerical and categorical features.",
-      "Handled class imbalance using SMOTE.",
-      "Split the dataset into training and testing sets.",
-      "Trained and compared classification models.",
-      "Evaluated models using classification performance metrics.",
-      "Selected the best-performing model.",
-      "Prepared the prediction pipeline for Streamlit deployment.",
-    ],
-
-    pipeline: [
-      "Business Problem Understanding",
-      "Dataset Loading",
-      "Data Understanding",
-      "Data Cleaning",
-      "Exploratory Data Analysis",
-      "Feature Engineering",
-      "Data Preprocessing",
-      "Class Imbalance Handling",
-      "SMOTE",
-      "Train-Test Split",
-      "Model Training",
-      "Model Evaluation",
-      "Best Model Selection",
-      "Prediction System",
-      "Deployment Preparation",
-    ],
-
-    model: {
-      name: "Best Performing Classification Model",
-      type: "Binary Classification",
-      target: "Fit vs Not Fit",
-    },
-
-    evaluation: {
-      metrics: [
-        "Accuracy",
-        "Precision",
-        "Recall",
-        "F1-Score",
-        "Confusion Matrix",
-      ],
-
-      focus:
-        "The classification models were evaluated using accuracy, precision, recall, F1-score, and confusion matrix analysis. Particular attention was given to precision and recall because incorrectly classifying qualified or unsuitable candidates can affect the effectiveness of an automated screening system.",
-    },
-
-    metrics: [],
-
-    highlights: [
-      "Automated candidate screening",
-      "Class imbalance handling with SMOTE",
-      "Feature engineering",
-      "Classification model comparison",
-      "Interactive Streamlit application",
-    ],
-
-    results:
-      "The project produced an end-to-end machine learning classification pipeline capable of predicting candidate suitability and provides a foundation for an interactive recruitment screening application.",
-
-    lessonsLearned: [
-      "The importance of careful preprocessing before model training.",
-      "Why class imbalance can significantly affect classification performance.",
-      "How SMOTE can be used to improve representation of minority classes.",
-      "The importance of evaluating classification models beyond accuracy.",
-      "How machine learning models can be prepared for practical deployment.",
+    missingSkillsList: [
+      "Flask",
+      "Artificial Intelligence",
+      "PyTorch",
+      "Software Engineering",
     ],
   },
+
+  lessonsLearned: [
+    "The importance of careful preprocessing before model training.",
+    "Why class imbalance can significantly affect classification performance.",
+    "How SMOTE can be used to address imbalanced training data.",
+    "Why model evaluation should use multiple metrics rather than accuracy alone.",
+    "How feature engineering can improve machine learning workflows.",
+    "How NLP can complement structured machine learning features.",
+    "Why raw text similarity should not be the only measure of candidate suitability.",
+    "How skills, experience, education, and textual relevance can be combined into a structured screening workflow.",
+    "How to build a machine learning application that moves beyond experimentation into deployment.",
+    "The importance of human review when applying AI to recruitment decisions.",
+  ],
+},
+
 
 
   // ============================================================
