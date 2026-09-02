@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 function Navbar() {
@@ -187,22 +187,32 @@ function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 
         {/* ====================================================
-            LOGO
+            BRAND / LOGO
         ===================================================== */}
 
         <button
           type="button"
           onClick={() => handleNavigation("/")}
-          className="group text-left"
+          className="group flex items-center gap-3 text-left"
           aria-label="Go to homepage"
         >
-          <p className="text-lg font-bold tracking-tight text-white transition group-hover:text-cyan-400">
-            Inda Obanyi
-          </p>
+          {/* Logo Image */}
+          <img
+            src="/images/logo.png"
+            alt="Inda Obanyi AI/ML Engineer"
+            className="h-11 w-11 rounded-xl object-contain transition duration-300 group-hover:scale-105"
+          />
 
-          <p className="text-[10px] uppercase tracking-[0.2em] text-gray-500">
-            AI/ML Practitioner
-          </p>
+          {/* Brand Text */}
+          <div>
+            <p className="text-lg font-bold tracking-tight text-white transition group-hover:text-cyan-400">
+              Inda Obanyi
+            </p>
+
+            <p className="text-[10px] uppercase tracking-[0.2em] text-gray-500">
+              AI/ML Engineer
+            </p>
+          </div>
         </button>
 
         {/* ====================================================
@@ -228,7 +238,7 @@ function Navbar() {
 
         {/* ====================================================
             DESKTOP CTA
-        ===================================================== */}
+        ==================================================== */}
 
         <button
           type="button"
@@ -240,7 +250,7 @@ function Navbar() {
 
         {/* ====================================================
             MOBILE MENU BUTTON
-        ===================================================== */}
+        ==================================================== */}
 
         <button
           type="button"
