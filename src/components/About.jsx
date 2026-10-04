@@ -2,8 +2,11 @@ import { motion } from "framer-motion";
 import {
   BrainCircuit,
   Database,
-  Rocket,
   Code2,
+  Rocket,
+  GraduationCap,
+  Layers3,
+  ArrowUpRight,
 } from "lucide-react";
 
 const focusAreas = [
@@ -11,120 +14,170 @@ const focusAreas = [
     icon: BrainCircuit,
     title: "Machine Learning",
     description:
-      "Building classification and predictive models using practical machine learning techniques and careful model evaluation.",
-  },
-  {
-    icon: Database,
-    title: "Data & Analysis",
-    description:
-      "Working with real-world datasets through data cleaning, exploratory analysis, feature engineering, and preprocessing.",
+      "Designing classification and predictive workflows through feature engineering, model comparison, evaluation, and responsible model selection.",
   },
   {
     icon: Code2,
-    title: "Software Development",
+    title: "AI Engineering",
     description:
-      "Turning machine learning workflows into usable applications using Python, React, Streamlit, and modern development tools.",
+      "Moving trained models beyond notebooks by connecting inference, APIs, application interfaces, persistence, and operational workflows.",
+  },
+  {
+    icon: Database,
+    title: "Data & Analytics",
+    description:
+      "Transforming raw datasets through cleaning, exploratory analysis, preprocessing, feature engineering, and data-driven investigation.",
   },
   {
     icon: Rocket,
-    title: "Deployment & Applications",
+    title: "Product Development",
     description:
-      "Learning to move beyond experimentation by developing practical, interactive, and deployable machine learning solutions.",
+      "Building practical AI applications with attention to usability, deployment, security, monitoring, and real-world user needs.",
   },
+];
+
+const domains = [
+  "FinTech",
+  "Recruitment",
+  "Customer Analytics",
+  "Social Impact",
 ];
 
 function About() {
   return (
     <section
       id="about"
-      className="border-t border-white/10 px-6 py-24"
+      className="relative overflow-hidden border-t border-white/[0.07] px-6 py-24 sm:py-28"
     >
-      <div className="mx-auto max-w-7xl">
+      {/* Background decoration */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+      >
+        <div className="absolute -right-40 top-20 h-96 w-96 rounded-full bg-cyan-400/[0.035] blur-[110px]" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl">
 
         {/* =====================================================
-            HEADER
+            SECTION HEADER
         ====================================================== */}
+
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-3xl"
+          transition={{ duration: 0.55 }}
+          className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end"
         >
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">
-            About Me
-          </p>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
+              About Me
+            </p>
 
-          <h2 className="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Building toward machine learning engineering.
-          </h2>
+            <h2 className="mt-4 text-4xl font-bold tracking-[-0.035em] text-white sm:text-5xl">
+              From data to
+              <span className="block text-gray-500">
+                working systems.
+              </span>
+            </h2>
+          </div>
 
-          <p className="mt-6 text-lg leading-8 text-gray-400">
-            I'm Inda Obanyi, an AI/ML practitioner focused on turning
-            data and machine learning techniques into practical solutions
-            for real-world problems.
+          <p className="max-w-2xl text-base leading-8 text-gray-400 sm:text-lg lg:ml-auto">
+            I'm Inda Obanyi, an AI/ML Engineer focused on turning
+            machine learning ideas into practical applications that
+            address real-world problems.
           </p>
         </motion.div>
 
-
         {/* =====================================================
-            MAIN CONTENT
+            STORY + PROFILE
         ====================================================== */}
-        <div className="mt-14 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
 
-          {/* -----------------------------------------------------
-              STORY
-          ------------------------------------------------------ */}
-          <motion.div
-            initial={{ opacity: 0, x: -25 }}
+        <div className="mt-16 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+
+          {/* Story */}
+
+          <motion.article
+            initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5 }}
-            className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 sm:p-10"
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.55 }}
+            className="relative overflow-hidden rounded-[2rem] border border-white/[0.08] bg-white/[0.025] p-7 sm:p-10"
           >
+            <div
+              aria-hidden="true"
+              className="absolute left-0 top-0 h-32 w-32 bg-cyan-400/[0.04] blur-3xl"
+            />
 
-            <p className="leading-8 text-gray-400">
-              My journey in technology has evolved from a foundation in
-              computer science into a growing specialization in artificial
-              intelligence and machine learning.
+            <div className="relative">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-400/15 bg-cyan-400/[0.07] text-cyan-400">
+                <Layers3 size={20} />
+              </div>
+
+              <h3 className="mt-6 text-2xl font-bold tracking-tight text-white">
+                Building beyond the model.
+              </h3>
+
+              <div className="mt-6 space-y-5 text-[15px] leading-8 text-gray-400 sm:text-base">
+                <p>
+                  My journey started with a foundation in computer
+                  science and developed into a focus on artificial
+                  intelligence, machine learning, and software-driven
+                  problem solving.
+                </p>
+
+                <p>
+                  My work spans the machine learning lifecycle:
+                  understanding data, engineering features, training
+                  and evaluating models, exposing inference through
+                  APIs, and turning those capabilities into usable
+                  applications.
+                </p>
+
+                <p>
+                  I have applied these skills across financial fraud
+                  detection, recruitment screening, customer analytics,
+                  and technology for social impact. Each project is an
+                  opportunity to connect technical decisions with a
+                  meaningful user or business problem.
+                </p>
+
+                <p className="font-medium text-gray-300">
+                  My goal is simple: build intelligent systems that
+                  are technically sound, useful to people, and capable
+                  of creating measurable real-world value.
+                </p>
+              </div>
+            </div>
+          </motion.article>
+
+          {/* Professional snapshot */}
+
+          <motion.aside
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.55 }}
+            className="rounded-[2rem] border border-white/[0.08] bg-gradient-to-b from-white/[0.04] to-white/[0.015] p-7 sm:p-8"
+          >
+            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-gray-600">
+              Professional Snapshot
             </p>
 
-            <p className="mt-6 leading-8 text-gray-400">
-              Through hands-on projects, I have worked with datasets,
-              developed machine learning models, performed exploratory
-              data analysis, engineered features, evaluated models, and
-              explored deployment through interactive applications.
-            </p>
+            <div className="mt-7 space-y-7">
 
-            <p className="mt-6 leading-8 text-gray-400">
-              My projects cover different real-world domains, including
-              financial fraud detection, recruitment screening, customer
-              satisfaction prediction, and technology for social impact.
-            </p>
-
-            <p className="mt-6 leading-8 text-gray-400">
-              I am currently focused on strengthening my machine learning
-              engineering skills by improving my understanding of model
-              deployment, software development, reliable ML workflows,
-              and building systems that can be useful beyond the notebook.
-            </p>
-
-
-            {/* Education / Background */}
-            <div className="mt-8 border-t border-white/10 pt-7">
-
-              <p className="text-sm font-medium uppercase tracking-[0.25em] text-cyan-400">
-                Background
-              </p>
-
-              <div className="mt-5 grid gap-5 sm:grid-cols-2">
+              <div className="flex gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-400/[0.07] text-cyan-400">
+                  <GraduationCap size={19} />
+                </div>
 
                 <div>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-xs uppercase tracking-[0.18em] text-gray-600">
                     Education
                   </p>
 
-                  <p className="mt-1 font-semibold text-white">
+                  <p className="mt-2 font-semibold text-white">
                     HND Computer Science
                   </p>
 
@@ -132,108 +185,124 @@ function About() {
                     Lagos State Polytechnic
                   </p>
                 </div>
-
-
-                <div>
-                  <p className="text-sm text-gray-500">
-                    Current Focus
-                  </p>
-
-                  <p className="mt-1 font-semibold text-white">
-                    Machine Learning Engineering
-                  </p>
-
-                  <p className="mt-1 text-sm text-gray-500">
-                    AI • Data • Deployment
-                  </p>
-                </div>
-
               </div>
 
+              <div className="h-px bg-white/[0.07]" />
+
+              <div>
+                <p className="text-xs uppercase tracking-[0.18em] text-gray-600">
+                  Engineering Focus
+                </p>
+
+                <p className="mt-2 font-semibold text-white">
+                  End-to-End AI/ML Systems
+                </p>
+
+                <p className="mt-2 text-sm leading-6 text-gray-500">
+                  Machine learning · APIs · applications · deployment
+                </p>
+              </div>
+
+              <div className="h-px bg-white/[0.07]" />
+
+              <div>
+                <p className="text-xs uppercase tracking-[0.18em] text-gray-600">
+                  Domains Explored
+                </p>
+
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {domains.map((domain) => (
+                    <span
+                      key={domain}
+                      className="rounded-full border border-white/[0.08] bg-white/[0.025] px-3 py-1.5 text-xs text-gray-400"
+                    >
+                      {domain}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-
-          </motion.div>
-
-
-          {/* -----------------------------------------------------
-              FOCUS AREAS
-          ------------------------------------------------------ */}
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
-
-            {focusAreas.map((area, index) => {
-              const Icon = area.icon;
-
-              return (
-                <motion.div
-                  key={area.title}
-                  initial={{ opacity: 0, x: 25 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.08,
-                  }}
-                  className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30"
-                >
-
-                  <div className="flex items-start gap-5">
-
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400">
-                      <Icon size={22} />
-                    </div>
-
-                    <div>
-
-                      <h3 className="text-lg font-semibold text-white">
-                        {area.title}
-                      </h3>
-
-                      <p className="mt-2 text-sm leading-7 text-gray-400">
-                        {area.description}
-                      </p>
-
-                    </div>
-
-                  </div>
-
-                </motion.div>
-              );
-            })}
-
-          </div>
-
+          </motion.aside>
         </div>
 
+        {/* =====================================================
+            CAPABILITIES
+        ====================================================== */}
+
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {focusAreas.map((area, index) => {
+            const Icon = area.icon;
+
+            return (
+              <motion.article
+                key={area.title}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.07,
+                }}
+                className="group rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/25 hover:bg-cyan-400/[0.025]"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-400/[0.07] text-cyan-400 transition group-hover:bg-cyan-400/[0.12]">
+                  <Icon size={19} />
+                </div>
+
+                <h3 className="mt-5 font-semibold text-white">
+                  {area.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-6 text-gray-500">
+                  {area.description}
+                </p>
+              </motion.article>
+            );
+          })}
+        </div>
 
         {/* =====================================================
-            POSITIONING STATEMENT
+            OPPORTUNITY CTA
         ====================================================== */}
+
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5 }}
-          className="mt-10 rounded-3xl border border-cyan-400/20 bg-cyan-400/[0.04] p-8 sm:p-10"
+          transition={{ duration: 0.55 }}
+          className="mt-8 overflow-hidden rounded-[2rem] border border-cyan-400/15 bg-gradient-to-r from-cyan-400/[0.06] via-cyan-400/[0.025] to-transparent p-7 sm:p-9"
         >
+          <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-400">
+                Open To Opportunities
+              </p>
 
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">
-            What I'm Looking For
-          </p>
+              <h3 className="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                Building useful technology with ambitious teams.
+              </h3>
 
-          <h3 className="mt-4 text-2xl font-bold text-white sm:text-3xl">
-            Opportunities to learn, build, and contribute.
-          </h3>
+              <p className="mt-3 leading-7 text-gray-400">
+                I'm interested in AI/ML engineering roles,
+                collaborations, research-driven projects, and
+                opportunities to build practical intelligent systems
+                with real-world impact.
+              </p>
+            </div>
 
-          <p className="mt-4 max-w-4xl leading-8 text-gray-400">
-            I'm interested in opportunities where I can contribute to
-            machine learning and AI projects, work with experienced
-            engineers and data professionals, solve meaningful problems,
-            and continue developing toward a professional machine
-            learning engineering role.
-          </p>
+            <a
+              href="#contact"
+              className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-cyan-400 px-6 py-3 text-sm font-bold text-black transition hover:bg-cyan-300"
+            >
+              Start a Conversation
 
+              <ArrowUpRight
+                size={16}
+                className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              />
+            </a>
+          </div>
         </motion.div>
-
       </div>
     </section>
   );

@@ -1,62 +1,31 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
 
   const navItems = [
-    {
-      label: "Home",
-      href: "/",
-    },
-    {
-      label: "About",
-      href: "/#about",
-    },
-    {
-      label: "Skills",
-      href: "/#skills",
-    },
-    {
-      label: "Projects",
-      href: "/#projects",
-    },
-    {
-      label: "Experience",
-      href: "/#experience",
-    },
-    {
-      label: "Contact",
-      href: "/#contact",
-    },
+    { label: "Home", href: "/" },
+    { label: "About", href: "/#about" },
+    { label: "Skills", href: "/#skills" },
+    { label: "Projects", href: "/#projects" },
+    { label: "Experience", href: "/#experience" },
+    { label: "Contact", href: "/#contact" },
   ];
-
-  /*
-   * ============================================================
-   * CLOSE MOBILE MENU
-   * ============================================================
-   */
 
   const closeMobileMenu = () => {
     setMobileOpen(false);
   };
 
-  /*
-   * ============================================================
-   * SCROLL TO SECTION
-   * ============================================================
-   */
-
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
 
-    if (!element) {
-      return;
-    }
+    if (!element) return;
 
     const navbarHeight = 90;
 
@@ -69,17 +38,13 @@ function Navbar() {
     });
   };
 
-  /*
-   * ============================================================
-   * HANDLE NAVIGATION
-   * ============================================================
-   */
-
   const handleNavigation = (href) => {
     closeMobileMenu();
 
     if (href === "/") {
       if (location.pathname === "/") {
+        window.history.pushState(null, "", "/");
+
         window.scrollTo({
           top: 0,
           behavior: "smooth",
@@ -100,10 +65,6 @@ function Navbar() {
 
     const sectionId = href.substring(hashIndex + 1);
 
-    /*
-     * If already on the homepage,
-     * scroll directly to the section.
-     */
     if (location.pathname === "/") {
       window.history.pushState(
         null,
@@ -112,50 +73,45 @@ function Navbar() {
       );
 
       scrollToSection(sectionId);
-
       return;
     }
 
-    /*
-     * If on another page, first navigate home.
-     * The useEffect below will handle the hash.
-     */
     navigate(`/#${sectionId}`);
   };
 
-  /*
-   * ============================================================
-   * HANDLE HASH AFTER ROUTE CHANGE
-   * ============================================================
-   */
-
   useEffect(() => {
-    if (location.pathname !== "/") {
-      return;
-    }
-
-    if (!location.hash) {
+    if (location.pathname !== "/" || !location.hash) {
       return;
     }
 
     const sectionId = location.hash.substring(1);
 
-    /*
-     * Small delay allows React to finish rendering
-     * the homepage before we search for the section.
-     */
-    const timer = setTimeout(() => {
+    const timer = window.setTimeout(() => {
       scrollToSection(sectionId);
     }, 100);
 
-    return () => clearTimeout(timer);
+    return () => window.clearTimeout(timer);
   }, [location.pathname, location.hash]);
 
-  /*
-   * ============================================================
-   * ACTIVE NAVIGATION
-   * ============================================================
-   */
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname, location.hash]);
 
   const isActive = (href) => {
     if (href === "/") {
@@ -176,82 +132,81 @@ function Navbar() {
     );
   };
 
-  /*
-   * ============================================================
-   * RENDER
-   * ============================================================
-   */
-
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "border-b border-white/[0.08] bg-black/85 shadow-[0_10px_40px_rgba(0,0,0,0.25)] backdrop-blur-2xl"
+          : "border-b border-transparent bg-black/40 backdrop-blur-md"
+      }`}
+    >
+      <nav className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-6">
 
-        {/* ====================================================
-            BRAND / LOGO
-        ===================================================== */}
-
+        {/* Brand */}
         <button
           type="button"
           onClick={() => handleNavigation("/")}
           className="group flex items-center gap-3 text-left"
-          aria-label="Go to homepage"
+          aria-label="Inda Obanyi — go to homepage"
         >
-          {/* Logo Image */}
-          <img
-            src="/images/logo.png"
-            alt="Inda Obanyi AI/ML Engineer"
-            className="h-11 w-11 rounded-xl object-contain transition duration-300 group-hover:scale-105"
-          />
+          {/* Compact IO mark */}
+          <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-cyan-400/20 bg-cyan-400/[0.07]">
+            <img
+              src="/images/favicon.png"
+              alt=""
+              aria-hidden="true"
+              className="h-full w-full object-cover"
+            />
+          </div>
 
-          {/* Brand Text */}
-          <div>
-            <p className="text-lg font-bold tracking-tight text-white transition group-hover:text-cyan-400">
+          <div className="hidden sm:block">
+            <p className="text-[15px] font-bold leading-none tracking-tight text-white transition group-hover:text-cyan-300">
               Inda Obanyi
             </p>
 
-            <p className="text-[10px] uppercase tracking-[0.2em] text-gray-500">
+            <p className="mt-1.5 text-[9px] font-medium uppercase tracking-[0.22em] text-gray-600">
               AI/ML Engineer
             </p>
           </div>
         </button>
 
-        {/* ====================================================
-            DESKTOP NAVIGATION
-        ===================================================== */}
+        {/* Desktop navigation */}
+        <div className="hidden items-center rounded-full border border-white/[0.07] bg-white/[0.025] p-1 lg:flex">
+          {navItems.map((item) => {
+            const active = isActive(item.href);
 
-        <div className="hidden items-center gap-7 md:flex">
-          {navItems.map((item) => (
-            <button
-              key={item.label}
-              type="button"
-              onClick={() => handleNavigation(item.href)}
-              className={`text-sm font-medium transition ${
-                isActive(item.href)
-                  ? "text-cyan-400"
-                  : "text-gray-400 hover:text-white"
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
+            return (
+              <button
+                key={item.label}
+                type="button"
+                onClick={() => handleNavigation(item.href)}
+                className={`relative rounded-full px-4 py-2 text-xs font-medium transition duration-300 ${
+                  active
+                    ? "bg-white/[0.07] text-cyan-300"
+                    : "text-gray-500 hover:text-white"
+                }`}
+              >
+                {item.label}
+              </button>
+            );
+          })}
         </div>
 
-        {/* ====================================================
-            DESKTOP CTA
-        ==================================================== */}
-
+        {/* Desktop CTA */}
         <button
           type="button"
           onClick={() => handleNavigation("/#contact")}
-          className="hidden rounded-full border border-cyan-400/30 px-5 py-2.5 text-sm font-semibold text-cyan-400 transition hover:bg-cyan-400 hover:text-black md:inline-flex"
+          className="group hidden items-center gap-2 rounded-full border border-cyan-400/25 bg-cyan-400/[0.06] px-5 py-2.5 text-xs font-semibold text-cyan-300 transition duration-300 hover:border-cyan-400/50 hover:bg-cyan-400 hover:text-black lg:inline-flex"
         >
           Let's Connect
+
+          <ArrowUpRight
+            size={14}
+            className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+          />
         </button>
 
-        {/* ====================================================
-            MOBILE MENU BUTTON
-        ==================================================== */}
-
+        {/* Mobile menu */}
         <button
           type="button"
           aria-label={
@@ -263,47 +218,75 @@ function Navbar() {
           onClick={() =>
             setMobileOpen((previous) => !previous)
           }
-          className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-gray-300 transition hover:border-cyan-400/30 hover:text-cyan-400 md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.025] text-gray-300 transition hover:border-cyan-400/30 hover:text-cyan-300 lg:hidden"
         >
           {mobileOpen ? (
-            <X size={21} />
+            <X size={20} />
           ) : (
-            <Menu size={21} />
+            <Menu size={20} />
           )}
         </button>
       </nav>
 
-      {/* ======================================================
-          MOBILE NAVIGATION
-      ======================================================= */}
-
+      {/* Mobile navigation */}
       {mobileOpen && (
-        <div className="border-t border-white/10 bg-black/95 px-6 py-5 md:hidden">
-          <div className="mx-auto flex max-w-7xl flex-col gap-2">
+        <div className="border-t border-white/[0.07] bg-black/95 px-6 pb-7 pt-5 backdrop-blur-2xl lg:hidden">
+          <div className="mx-auto max-w-7xl">
 
-            {navItems.map((item) => (
-              <button
-                key={item.label}
-                type="button"
-                onClick={() => handleNavigation(item.href)}
-                className={`rounded-xl px-4 py-3 text-left text-sm font-medium transition ${
-                  isActive(item.href)
-                    ? "bg-cyan-400/10 text-cyan-400"
-                    : "text-gray-300 hover:bg-white/5 hover:text-cyan-400"
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
+            <div className="mb-5 flex items-center gap-3 border-b border-white/[0.07] pb-5 sm:hidden">
+              <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-cyan-400/20">
+                <img
+                  src="/images/favicon.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+              <div>
+                <p className="text-sm font-bold text-white">
+                  Inda Obanyi
+                </p>
+
+                <p className="mt-1 text-[9px] uppercase tracking-[0.2em] text-gray-600">
+                  AI/ML Engineer
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1">
+              {navItems.map((item) => (
+                <button
+                  key={item.label}
+                  type="button"
+                  onClick={() =>
+                    handleNavigation(item.href)
+                  }
+                  className={`flex items-center justify-between rounded-xl px-4 py-3.5 text-left text-sm font-medium transition ${
+                    isActive(item.href)
+                      ? "bg-cyan-400/[0.08] text-cyan-300"
+                      : "text-gray-400 hover:bg-white/[0.04] hover:text-white"
+                  }`}
+                >
+                  {item.label}
+
+                  {isActive(item.href) && (
+                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                  )}
+                </button>
+              ))}
+            </div>
 
             <button
               type="button"
-              onClick={() => handleNavigation("/#contact")}
-              className="mt-2 rounded-xl bg-cyan-400 px-4 py-3 text-center text-sm font-semibold text-black transition hover:bg-cyan-300"
+              onClick={() =>
+                handleNavigation("/#contact")
+              }
+              className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-400 px-4 py-3.5 text-sm font-bold text-black transition hover:bg-cyan-300"
             >
               Let's Connect
+              <ArrowUpRight size={16} />
             </button>
-
           </div>
         </div>
       )}
