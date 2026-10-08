@@ -1,46 +1,70 @@
+
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import WhatsAppButton from "./components/WhatsAppButton";
-import Home from "./pages/Home";
-import ProjectsPage from "./pages/ProjectsPage";
-import ProjectDetails from "./pages/ProjectDetails";
+
+/* ============================================================
+   LAZY-LOADED PAGES
+============================================================ */
+
+const Home = lazy(() => import("./pages/Home"));
+const ProjectsPage = lazy(() => import("./pages/ProjectsPage"));
+const ProjectDetails = lazy(() => import("./pages/ProjectDetails"));
+
+/* ============================================================
+   PAGE LOADING FALLBACK
+============================================================ */
+
+function PageLoader() {
+  return (
+    <main
+      className="flex min-h-screen items-center justify-center bg-black px-6 text-white"
+      role="status"
+      aria-live="polite"
+    >
+      <div className="flex flex-col items-center gap-5">
+        <div
+          className="h-10 w-10 animate-spin rounded-full border-2 border-white/10 border-t-cyan-400 motion-reduce:animate-none"
+          aria-hidden="true"
+        />
+
+        <p className="text-sm font-medium tracking-wide text-gray-400">
+          Loading page...
+        </p>
+      </div>
+    </main>
+  );
+}
+
+/* ============================================================
+   APPLICATION
+============================================================ */
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          {/* HOME */}
+          <Route path="/" element={<Home />} />
 
-        {/* =====================================================
-            HOME
-        ====================================================== */}
-        <Route
-          path="/"
-          element={<Home />}
-        />
+          {/* ALL PROJECTS */}
+          <Route
+            path="/projects"
+            element={<ProjectsPage />}
+          />
 
-        {/* =====================================================
-            ALL PROJECTS
-        ====================================================== */}
-        <Route
-          path="/projects"
-          element={<ProjectsPage />}
-        />
+          {/* PROJECT DETAILS */}
+          <Route
+            path="/projects/:id"
+            element={<ProjectDetails />}
+          />
+        </Routes>
+      </Suspense>
 
-        {/* =====================================================
-            PROJECT DETAILS
-        ====================================================== */}
-        <Route
-          path="/projects/:id"
-          element={<ProjectDetails />}
-        />
-
-      </Routes>
-
-      {/* =====================================================
-          FLOATING WHATSAPP BUTTON
-      ====================================================== */}
+      {/* FLOATING WHATSAPP BUTTON */}
       <WhatsAppButton />
-
     </BrowserRouter>
   );
 }
