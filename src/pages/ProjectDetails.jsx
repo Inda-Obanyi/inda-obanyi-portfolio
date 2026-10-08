@@ -194,10 +194,7 @@ function ProjectDetails() {
       codeRepository: project.github,
     }),
 
-    ...(hasDemo && {
-      sameAs: project.demo,
-    }),
-
+   
     keywords: [
       "Artificial Intelligence",
       "Machine Learning",
