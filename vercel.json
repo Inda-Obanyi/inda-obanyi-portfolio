@@ -1,5 +1,22 @@
+
 {
   "rewrites": [
+    {
+      "source": "/projects/fraudguard-ai",
+      "destination": "/projects/fraudguard-ai/index.html"
+    },
+    {
+      "source": "/projects/resume-screening",
+      "destination": "/projects/resume-screening/index.html"
+    },
+    {
+      "source": "/projects/airline-satisfaction",
+      "destination": "/projects/airline-satisfaction/index.html"
+    },
+    {
+      "source": "/projects/floodguard-ai",
+      "destination": "/projects/floodguard-ai/index.html"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
