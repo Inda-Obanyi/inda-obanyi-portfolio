@@ -32,7 +32,7 @@ const projects = [
     "Audit Logging",
   ],
 
-  image: "/projects/fraudguard-ai.png",
+  image: "/projects/fraudguard-ai.webp",
 
   github:
     "https://github.com/Inda-Obanyi/mobile-money-fraud-prediction",
@@ -269,7 +269,7 @@ const projects = [
     "GitHub",
   ],
 
-  image: "/projects/resume-screening.png",
+  image: "/projects/resume-screening.webp",
 
   github:
     "https://github.com/Inda-Obanyi/Resume-Screening-AI",
@@ -531,7 +531,7 @@ const projects = [
       "Data Analysis",
     ],
 
-    image: "/projects/airline-satisfaction.png",
+    image: "/projects/airline-satisfaction.webp",
 
     github: "",
 
@@ -643,7 +643,7 @@ const projects = [
       "WhatsApp",
     ],
 
-    image: "/projects/floodguard-ai.png",
+    image: "/projects/floodguard-ai.webp",
 
     github: "https://github.com/Inda-Obanyi/floodguard-ninja",
 

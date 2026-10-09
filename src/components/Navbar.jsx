@@ -152,7 +152,7 @@ function Navbar() {
           {/* Compact IO mark */}
           <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-cyan-400/20 bg-cyan-400/[0.07]">
             <img
-              src="/images/favicon.png"
+              src="/images/navbar-logo.webp"
               alt=""
               aria-hidden="true"
               className="h-full w-full object-cover"
